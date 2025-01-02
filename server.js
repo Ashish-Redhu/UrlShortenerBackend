@@ -10,11 +10,11 @@ const UrlModel = require("./models/UrlModel");
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3201;
-
+const frontendUrl = process.env.FRONTEND_URL;
 // app.use(cors()); // We are using it in development only, so that the client and server running on diff-diff ports can communicate.
 app.use(
   cors({
-    origin: `https://urlshortenerfrontend-d38v.onrender.com`, // replace with your frontend URL
+    origin: frontendUrl,      // Toggle this thing during development and production. 
     methods: "GET,POST,PUT,DELETE",
     credentials: true, // Allow cookies to be sent
   })
