@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-// const cors = require("cors");
+const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const urlRoutes = require("./routes/urlRoutes");
 const userRoutes = require("./routes/userRoutes");
@@ -12,13 +12,13 @@ const app = express();
 const PORT = process.env.PORT || 3201;
 
 // app.use(cors()); // We are using it in development only, so that the client and server running on diff-diff ports can communicate.
-// app.use(
-//   cors({
-//     origin: `http://localhost:5173`, // replace with your frontend URL
-//     methods: "GET,POST,PUT,DELETE",
-//     credentials: true, // Allow cookies to be sent
-//   })
-// );
+app.use(
+  cors({
+    origin: `https://urlshortenerfrontend-d38v.onrender.com`, // replace with your frontend URL
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true, // Allow cookies to be sent
+  })
+);
 app.use(express.json()); // we are using it so that json files can be understood by express.
 app.use(cookieParser()); // we are using it so that our backend server can parse cookies attached to the incoming requests. Because these cookies are having JWT Token which will help the user to auto-login.
 // Starting backend server. 
