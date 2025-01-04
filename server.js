@@ -13,13 +13,14 @@ const PORT = process.env.PORT || 3201;
 const frontendUrl = process.env.FRONTEND_URL;
 // # FRONTEND_URL=http://localhost:5173 while development locally.
 // app.use(cors()); // We are using it in development only, so that the client and server running on diff-diff ports can communicate.
-app.use(
-  cors({
-    origin: frontendUrl,      // Toggle this thing during development and production. 
-    methods: "GET,POST,PUT,DELETE",
-    credentials: true, // Allow cookies to be sent
-  })
-);
+// app.use(
+//   cors({
+//     origin: frontendUrl,      // Toggle this thing during development and production. 
+//     methods: "GET,POST,PUT,DELETE",
+//     credentials: true, // Allow cookies to be sent
+//   })
+// );
+app.use(cors());
 app.use(express.json()); // we are using it so that json files can be understood by express.
 app.use(cookieParser()); // we are using it so that our backend server can parse cookies attached to the incoming requests. Because these cookies are having JWT Token which will help the user to auto-login.
 // Starting backend server. 
