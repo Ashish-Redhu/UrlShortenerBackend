@@ -11,6 +11,7 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3201;
 const frontendUrl = process.env.FRONTEND_URL;
+// # FRONTEND_URL=http://localhost:5173 while development locally.
 // app.use(cors()); // We are using it in development only, so that the client and server running on diff-diff ports can communicate.
 app.use(
   cors({
