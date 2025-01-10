@@ -13,6 +13,9 @@ const app = express();
 const PORT = process.env.PORT || 3201;
 const frontendUrl = process.env.FRONTEND_URL; // http://localhost:5173 during development
 const backendUrl = process.env.BACKEND_URL;
+app.use(express.json()); // Parse incoming JSON
+app.use(cookieParser()); // Parse cookies in requests
+
 // CORS Middleware
 app.use(cors({
     origin: frontendUrl, // Set to your frontend URL explicitly
@@ -27,8 +30,7 @@ app.use(cors({
 //     credentials: true,
 // }));
 
-app.use(express.json()); // Parse incoming JSON
-app.use(cookieParser()); // Parse cookies in requests
+
 
 // Routes
 app.use("/users", userRoutes);
