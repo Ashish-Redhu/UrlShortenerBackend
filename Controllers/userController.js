@@ -54,7 +54,7 @@ const loginUser = async(req, res)=>{
             const token = jwt.sign(
                 {email: existingUser.email, id: existingUser._id, walletMoney: existingUser.walletMoney, name: existingUser.name, type: existingUser.type},     //this is payload.
                 process.env.JWT_SECRET,                                // this is secrect key or we can STAMP to verify. But remember this will not go to client.
-                {expiresIn: process.env.JWT_EXPIRY}                  // expiry time of this token.
+                {expiresIn: 10*60*1000}                  // expiry time of this token.
             );
            
 
