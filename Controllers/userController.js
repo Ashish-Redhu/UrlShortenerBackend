@@ -141,7 +141,8 @@ const logoutUser = (req, res) => {
         res.clearCookie("token", {
             httpOnly: true,
             // httpOnly: false, // Should be true in production
-            sameSite: 'Strict', // Prevent CSRF attacks
+            // sameSite: 'Strict', // Prevent CSRF attacks
+            sameSite: 'None', // Allow the cookie to be sent cross-origin
             // secure: false, // Set to true in production with HTTPS
             secure: true,
         });
