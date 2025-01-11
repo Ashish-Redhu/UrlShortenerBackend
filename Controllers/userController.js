@@ -63,7 +63,8 @@ const loginUser = async(req, res)=>{
                 httpOnly: true,    // For production
                //httpOnly: false,      // for local development
                expires: new Date(Date.now() + 10*60*1000), // expiration time
-               sameSite: 'Strict', // Prevents CSRF attacks
+            //   sameSite: 'Strict', // Prevents CSRF attacks
+            sameSite: 'None', // Allow the cookie to be sent cross-origin
             //    maxAge: 1*60*1000, // as it is stored in milliseconds.
             //    secure: false,
                secure: true,
